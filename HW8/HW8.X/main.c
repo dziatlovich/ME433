@@ -90,7 +90,7 @@ int main() {
         _CP0_SET_COUNT(0);
         blink();
         sprintf(m, "S H R E K at %1.0f Hz", freq);
-        draw(2,12,m);
+        draw(0,12,m);
         ssd1306_update();
         freq = 24000000/_CP0_GET_COUNT();
     }
