@@ -3,10 +3,6 @@
 #include <stdio.h>
 #include "i2c_master_noint.h"
 
-#define IODIR 0x00
-#define OLAT 0x0A
-#define GPIO 0x09
-
 // DEVCFG0
 #pragma config DEBUG = OFF // disable debugging
 #pragma config JTAGEN = OFF // disable jtag
@@ -37,6 +33,10 @@
 #pragma config USERID = 00000000 // some 16bit userid, doesn't matter what
 #pragma config PMDL1WAY = OFF // allow multiple reconfigurations
 #pragma config IOL1WAY = OFF // allow multiple reconfigurations
+
+#define IODIR 0x00
+#define OLAT 0x0A
+#define GPIO 0x09
 
 void initPIC();
 void WriteI2C(unsigned char ad, unsigned char reg, unsigned char out);
@@ -109,7 +109,6 @@ unsigned char ReadI2C(unsigned char ad, unsigned char reg) {
     i2c_master_stop(); 
     
     return a;
-   
 }
 
 void blink() {
